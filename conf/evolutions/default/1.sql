@@ -1,0 +1,30 @@
+# DC schema
+
+# --- !Ups
+
+CREATE TABLE PET (
+    ID integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    NAME VARCHAR(255) NOT NULL,
+    DATE_OF_BIRTH VARCHAR(255) NOT NULL,
+    NOTES VARCHAR(255) NOT NULL
+);
+
+--case class OwnerRecord(id: Int, petId: Int, firstName: String, lastName: String, firstLine: String, town: String, postcode: String, phoneNumber: Long)
+
+
+CREATE TABLE OWNER (
+    ID integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    PET_ID INT NOT NULL,
+    FOREIGN KEY (PET_ID) REFERENCES PET(ID),
+    FIRST_NAME VARCHAR(255) NOT NULL,
+    LAST_NAME VARCHAR(255) NOT NULL,
+    FIRST_LINE VARCHAR(255) NOT NULL,
+    TOWN VARCHAR(255) NOT NULL,
+    POSTCODE VARCHAR(255) NOT NULL,
+    PHONE_NUMBER VARCHAR(255) NOT NULL,
+);
+
+# --- !Downs
+
+DROP TABLE PET;
+DROP TABLE OWNER;

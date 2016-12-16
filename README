@@ -1,0 +1,81 @@
+This is your Play application
+=============================
+
+To run tests
+-------------
+
+sbt clean test
+
+To run
+-------
+
+sbt run
+
+Endpoints
+==========
+
+GET /pets?name=Dutchie
+returns all pets - optional parameter firstName will return pets that match criteria
+
+GET /pet/{id}
+returns pet with requested id
+
+PUT /pet/{id}
+Example Request Payload:
+{
+"name": "Dutchie",
+"dateOfBirth": "2016-01-01",
+"notes": "Healthy"
+}
+
+registers or updates pet with requested id
+
+PUT /owner/{petId}
+Example Request Payload:
+{
+  "ownerName": {
+    "firstName": "Sofia",
+    "lastName": "Cole"
+   },
+  "address": {
+    "firstLine": "1 Privet Drive",
+    "town": "Surrey",
+    "postcode": "HP1 P77"
+   },
+   "phoneNumber": "07834823846"
+}
+
+updates an owner record to the database for a registered pet
+
+
+POST /pets
+Example Request Payload:
+{
+"name": "Dutchie",
+"dateOfBirth": "2016-01-01",
+"notes": "Healthy"
+}
+
+registers new pet
+
+POST /owner/{petId}
+Example Request Payload:
+{
+  "ownerName": {
+    "firstName": "Sofia",
+    "lastName": "Cole"
+   },
+  "address": {
+    "firstLine": "1 Privet Drive",
+    "town": "Surrey",
+    "postcode": "HP1 P77"
+   },
+   "phoneNumber": "07834823846"
+}
+
+registers new owner for a registered pet
+
+DELETE /pet/{id}
+
+deletes pet and corresponding owner with requested petId
+

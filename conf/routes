@@ -1,0 +1,15 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /pets               controllers.Application.getPets(name: Option[String])
+GET     /pet/:petId         controllers.Application.getPetById(petId: Int)
+
+PUT     /pet/:petId         controllers.Application.updatePetById(petId: Int)
+PUT     /owner/:ownerId     controllers.Application.updateOwnerByPetId(ownerId: Int)
+
+POST    /pet                controllers.Application.registerPet
+POST    /owner/:petId       controllers.Application.addOwnerByPetId(petId: Int)
+
+DELETE  /pet/:petId         controllers.Application.deletePet(petId: Int)
+
